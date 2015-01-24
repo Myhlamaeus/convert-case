@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/ileri/case",
   "dependencies": {
-    "case-camel": "^0.1.1",
-    "case-dash": "^0.1.0",
-    "case-snake": "^0.1.0"
+    "case-camel": "^0.2.0",
+    "case-dash": "^0.2.0",
+    "case-snake": "^0.2.0"
   }
 }
