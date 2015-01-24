@@ -1,12 +1,35 @@
+var types = {
+        dash: require("case-dash"),
+        snake: require("case-snake"),
+        camel: require("case-camel")
+    },
+    methods = ["parse", "stringify", "is"];
+
 function concat(a, b) {
     return a.concat(b);
 }
 
+function isMethod(key) {
+    return (key in this) && typeof(this[key]) === "function";
+}
+
+function isType(type) {
+    return types[type].is(this);
+}
+
 module.exports = {
-    types: {
-        dash: require("case-dash"),
-        snake: require("case-snake"),
-        camel: require("case-camel")
+    addCase: function(name, obj) {
+        name = String(name);
+
+        if(typeof(obj) !== "object") {
+            throw new Error("Can only add new cases of type object");
+        }
+
+        if(!methods.every(isMethod, obj)) {
+            throw new Error("Added cases must have the methods " + methods);
+        }
+
+        types[name] = obj;
     },
     identify: function(val) {
         var types = this.identifyAll(val);
@@ -25,23 +48,14 @@ module.exports = {
 
         val = String(val);
 
-        if(val.indexOf("-") !== -1) {
-            ret.push("dash");
-        }
-        if(val.indexOf("_") !== -1) {
-            ret.push("snake");
-        }
-        if(/[A-Z][a-z]/.test(val)) {
-            ret.push("camel");
-        }
-        return ret;
+        return Object.keys(types).filter(isType, val);
     },
     parseAs: function(val, type) {
-        if(!(type in this.types)) {
+        if(!(type in types)) {
             throw new Error("Unknown case: " + type);
         }
 
-        return this.types[type].parse(val);
+        return types[type].parse(val);
     },
     parse: function(val) {
         var type;
@@ -76,11 +90,11 @@ module.exports = {
         return ret;
     },
     stringify: function(val, type) {
-        if(!(type in this.types)) {
+        if(!(type in types)) {
             throw new Error("Unknown case: " + type);
         }
 
-        return this.types[type].stringify(val);
+        return types[type].stringify(val);
     },
     convert: function(val, fromType, toType) {
         var parsed;
