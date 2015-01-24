@@ -1,0 +1,28 @@
+{
+  "name": "case",
+  "version": "0.0.0",
+  "main": "case.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "case",
+    "camel",
+    "camelcase"
+  ],
+  "author": "Malte-Maurice Dreyer <dreyer.maltem+dev@gmail.com>",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ileri/case.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ileri/case/issues"
+  },
+  "homepage": "https://github.com/ileri/case",
+  "dependencies": {
+    "case-camel": "^0.1.1",
+    "case-dash": "^0.1.0",
+    "case-snake": "^0.1.0"
+  }
+}
