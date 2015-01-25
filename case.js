@@ -1,6 +1,7 @@
 var types = {
         dash: require("case-dash"),
         snake: require("case-snake"),
+        dot: require("case-dot"),
         camel: require("case-camel")
     },
     methods = ["parse", "stringify", "is"];

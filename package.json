@@ -21,6 +21,7 @@
   "dependencies": {
     "case-camel": "^0.3.0",
     "case-dash": "^0.2.0",
+    "case-dot": "^0.1.0",
     "case-snake": "^0.2.0"
   }
 }
