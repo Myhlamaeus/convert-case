@@ -1,5 +1,6 @@
 {
   "name": "case",
+  "description": "Convert between different cases",
   "version": "0.0.0",
   "main": "case.js",
   "scripts": {
