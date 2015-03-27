@@ -1,0 +1,20 @@
+{
+  "name": "case",
+  "main": "case.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ileri/case",
+  "authors": [
+    "Malte-Maurice Dreyer <dreyer.maltem+dev@gmail.com>"
+  ],
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
