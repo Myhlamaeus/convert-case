@@ -21,7 +21,7 @@
   "keywords": [
     "case"
   ],
-  "license": "GPL-3.0",
+  "license": "MIT",
   "main": "dist/case.js",
   "repository": {
     "type": "git",
