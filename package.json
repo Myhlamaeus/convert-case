@@ -11,17 +11,24 @@
     "case-dot": "^0.1.0",
     "case-snake": "^0.2.0"
   },
+  "devDependencies": {
+    "babel": "^4.4.6",
+    "gulp": "^3.8.11",
+    "gulp-babel": "^4.0.0",
+    "gulp-sourcemaps": "^1.5.1"
+  },
   "homepage": "https://github.com/ileri/case",
   "keywords": [
     "case"
   ],
   "license": "GPL-3.0",
-  "main": "case.js",
+  "main": "dist/case.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/ileri/case.git"
   },
   "scripts": {
+    "prepublish": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
