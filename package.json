@@ -1,5 +1,6 @@
 {
   "name": "case",
+  "description": "Convert between different cases",
   "version": "0.0.0",
   "author": "Malte-Maurice Dreyer <dreyer.maltem+dev@gmail.com>",
   "bugs": {
