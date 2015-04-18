@@ -22,11 +22,11 @@ function isType (type) {
 export function addCase (name, obj) {
   name = String(name)
 
-  if(typeof obj !== 'object') {
+  if (typeof obj !== 'object') {
     throw new Error('Can only add new cases of type object')
   }
 
-  if(!methods.every(isMethod, obj)) {
+  if (!methods.every(isMethod, obj)) {
     throw new Error(`Added cases must have the methods ${methods}`)
   }
 
@@ -36,14 +36,14 @@ export function addCase (name, obj) {
 export function identify (val) {
   const types = this.identifyAll(val)
 
-  if(types.length) {
+  if (types.length) {
     return types[0]
   }
   return undefined
 }
 
 export function identifyAll (val) {
-  if(typeof val === 'undefined' || val === null) {
+  if (typeof val === 'undefined' || val === null) {
     return []
   }
 
@@ -53,7 +53,7 @@ export function identifyAll (val) {
 }
 
 export function parseAs (val, type) {
-  if(!(type in types)) {
+  if (!(type in types)) {
     throw new Error(`Unknown case: ${type}`)
   }
 
@@ -61,13 +61,13 @@ export function parseAs (val, type) {
 }
 
 export function parse (val) {
-  if(typeof val === 'undefined' || val === null) {
+  if (typeof val === 'undefined' || val === null) {
     return []
   }
 
   val = String(val)
   const type = this.identify(val)
-  if(typeof type === 'undefined') {
+  if (typeof type === 'undefined') {
     return val
   }
   return this.parseAs(val, type)
@@ -76,13 +76,13 @@ export function parse (val) {
 export function parseAll (val) {
   let ret = []
 
-  if(typeof val === 'undefined' || val === null) {
+  if (typeof val === 'undefined' || val === null) {
     return []
   }
 
   ret.push(String(val))
 
-  for(let type of identifyAll(val)) {
+  for (let type of identifyAll(val)) {
     ret = ret.map(function (str) {
       return parseAs(str, type)
     }).reduce(concat, [])
@@ -92,7 +92,7 @@ export function parseAll (val) {
 }
 
 export function stringify (val, type) {
-  if(!(type in types)) {
+  if (!(type in types)) {
     throw new Error(`Unknown case: ${type}`)
   }
 
@@ -102,12 +102,12 @@ export function stringify (val, type) {
 export function convert (val, fromType, toType) {
   let parsed
 
-  if(arguments.length < 3) {
+  if (arguments.length < 3) {
     toType = fromType
     fromType = undefined
   }
 
-  if(typeof fromType === 'undefined') {
+  if (typeof fromType === 'undefined') {
     parsed = this.parseAll(val)
   } else {
     parsed = this.parseAs(val, fromType)
