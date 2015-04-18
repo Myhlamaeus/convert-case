@@ -4,5 +4,5 @@ node_js:
   - "0.12"
   - iojs
 install:
-  - npm install -g gulp-cli
+  - npm install -g gulp-cli standard
   - npm install
